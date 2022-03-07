@@ -6,7 +6,7 @@ Write_File = io.open("sabhapooje_breaken_code.txt","a",encoding='utf8')
 
 
 for lines in Read_file:
-    Write_File.write(lines[:-1]+"<br />\n")
+    Write_File.write(lines[:-1]+"\\n\n")
 else:
     Write_File.close()
 

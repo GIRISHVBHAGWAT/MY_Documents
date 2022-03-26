@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>hari om</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .b1 {
+            background-color: antiquewhite;
+            fontColor: black;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-Size: 35px;
+            width: 100%;
+            background-position: center center;
+        }
+        
+        .b1:hover {
+            background-color: aqua;
+        }
+        
+        .b5 {
+            float: middle;
+            background-color: aqua;
+            font-family: arial;
+            font-size: 40px;
+        }
+        
+        .qus {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="qus" id='qus'></div>
+    <button class="b1" id="b1" onclick="omis()">
+    hari om1
+</button>
+    <p></p>
+
+    <button class="b1" id="b2" onclick="omis()">
+    hari om2
+</button>
+    <p></p>
+
+    <button class="b1" id="b3" onclick="omis()">
+    hari om3
+</button>
+    <p></p>
+    <button class="b1" id="b4" onclick="omis()">
+    hari om4
+</button>
+    <script>
+        let rs = "hari om1 --- ok1 \n hari om2 --- ok2 \n hari om3 --- ok3 \n hari om4 --- ok4 \n ";
+        let om = rs.split("\n");
+        var q = [];
+        var a = [];
+        for (i = 0; i < om.length; i++) {
+            q.push(om[i].split("---")[0]);
+            a.push(om[i].split("---")[1]);
+        }
+        let inde = 0;
+
+        function omis() {
+            console.log(Math.floor(Math.random() * 3))
+            let b1 = document.getElementById('b1');
+            let b2 = document.getElementById('b2');
+            let b3 = document.getElementById('b3');
+            let b4 = document.getElementById('b4');
+            let qus = document.getElementById('qus');
+
+
+            let ans_set1 = [b1, b2, b3, b4];
+            let ans_set2 = [b2, b3, b4, b1];
+            let ans_set3 = [b3, b4, b1, b2];
+            let ans_set4 = [b4, b1, b2, b3];
+
+            let ans_sets_set = [ans_set1, ans_set2, ans_set3, ans_set4];
+            let ans_ran_set = Math.floor(Math.random() * 3);
+
+
+
+            qus.innerHTML = '<h1>' + q[inde] + '</h1>'
+            ans_sets_set[ans_ran_set][0].textContent = a[inde];
+            ans_sets_set[ans_ran_set][1].textContent = a[Math.floor(Math.random() * 3)];
+            ans_sets_set[ans_ran_set][2].textContent = a[Math.floor(Math.random() * 3)];
+            ans_sets_set[ans_ran_set][3].textContent = a[Math.floor(Math.random() * 3)];
+
+            if (inde < a.length - 2) {
+                inde++;
+
+            } else {
+                inde = 0;
+            }
+        }
+    </script>
+</body>
+
+</html>
